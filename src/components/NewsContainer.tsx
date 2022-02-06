@@ -58,7 +58,7 @@ const NewsContainer = ({
           hit["created_at"]
       );
       return cleanedHits;
-    } catch (e) {}
+    } catch (e) { }
 
     return [];
   };
@@ -66,9 +66,9 @@ const NewsContainer = ({
   const filterFavorites = (newsArr) => {
     return selectedNavBtn === "favorites"
       ? newsArr.filter((newsItem) => {
-          const key = `${newsItem["author"]}-${newsItem["created_at"]}`;
-          return news[key];
-        })
+        const key = `${newsItem["author"]}-${newsItem["created_at"]}`;
+        return news[key];
+      })
       : newsArr;
   };
 
@@ -138,9 +138,5 @@ const mapDispatch = (dispatch: Dispatch) => ({
   toggleFavorite: (favoriteKey) =>
     dispatch({ type: "news/toggleFavorite", payload: favoriteKey }),
 });
-
-type StateProps = ReturnType<typeof mapState>;
-type DispatchProps = ReturnType<typeof mapDispatch>;
-type Props = StateProps & DispatchProps;
 
 export default connect(mapState, mapDispatch)(NewsContainer);

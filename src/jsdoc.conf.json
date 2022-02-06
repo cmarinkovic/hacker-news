@@ -1,0 +1,41 @@
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc", "closure"]
+  },
+  "source": {
+    "include": ["src"],
+    "exclude": [
+      "src/resources/customModule",
+      "src/resources/customViewerModule",
+      "src/bpmnlinter-config.js"
+    ],
+    "includePattern": ".+\\.js(doc|x)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins": ["plugins/markdown", "better-docs/component"],
+  "templates": {
+    "search": true,
+    "better-docs": {
+      "name": "DasContract Editor",
+      "navLinks": [
+        {
+          "label": "GitHub",
+          "href": "https://github.com/cmarinkovic/das-contract-editor"
+        },
+        {
+          "label": "Deployed Application",
+          "href": "https://das-contract-editor.herokuapp.com/"
+        }
+      ]
+    }
+  },
+  "opts": {
+    "encoding": "utf8",
+    "destination": "docs",
+    "recurse": true,
+    "readme": "README.md",
+    "verbose": true,
+    "template": "./node_modules/better-docs"
+  }
+}

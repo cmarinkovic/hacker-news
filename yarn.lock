@@ -1405,6 +1405,11 @@
   dependencies:
     redux-persist "^6.0.0"
 
+"@rematch/updated@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@rematch/updated/-/updated-2.1.2.tgz#33bc572f81fc3a8326d6be0f6bc2833604131ffc"
+  integrity sha512-Y89x2P8gslnRdU/uF5xgfgHLKXGVoCNFxIiTsQAB+5xc9trXmL5zldJyD5bzMBUBbAWn4b8XEq2P1A3XwX4u+Q==
+
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.3.0.tgz#9cb1c5146ddd6a4968ad96f209c50c62f92f9879"

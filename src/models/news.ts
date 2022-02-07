@@ -4,13 +4,15 @@ import { RootModel } from ".";
 export const news = createModel<RootModel>()({
   state: {},
   reducers: {
-    toggleFavorite(state, payload: "string") {
-      if (state[payload]) {
-        state[payload] = !state[payload];
+    toggleFavorite: (state, payload: "string") => {
+      const currentState = {...state};
+
+      if (currentState[payload]) {
+        currentState[payload] = !currentState[payload];
       } else {
-        state[payload] = true;
+        currentState[payload] = true;
       }
-      return state;
+      return currentState;
     },
   },
 });

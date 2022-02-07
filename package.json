@@ -5,6 +5,7 @@
   "dependencies": {
     "@rematch/core": "^2.2.0",
     "@rematch/persist": "^2.1.2",
+    "@rematch/updated": "^2.1.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",

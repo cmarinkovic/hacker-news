@@ -58,7 +58,7 @@ const NewsContainer = ({
           hit["created_at"]
       );
       return cleanedHits;
-    } catch (e) { }
+    } catch (e) {}
 
     return [];
   };
@@ -66,9 +66,9 @@ const NewsContainer = ({
   const filterFavorites = (newsArr) => {
     return selectedNavBtn === "favorites"
       ? newsArr.filter((newsItem) => {
-        const key = `${newsItem["author"]}-${newsItem["created_at"]}`;
-        return news[key];
-      })
+          const key = `${newsItem["author"]}-${newsItem["created_at"]}`;
+          return news[key];
+        })
       : newsArr;
   };
 

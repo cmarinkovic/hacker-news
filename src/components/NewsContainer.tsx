@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { connect } from "react-redux";
 import { Dispatch, RootState } from "../store";
@@ -29,7 +29,7 @@ const NewsContainer = ({
   const [totalNews, setTotalNews] = useState(0);
   const newsPerPage = 8;
 
-  const getNewsRes = async () => {
+  const getNewsRes = useCallback(async () => {
     setLoading(true);
 
     option &&
@@ -44,7 +44,7 @@ const NewsContainer = ({
           setCurrentPage(1);
           setLoading(false);
         }));
-  };
+  }, [option]);
 
   const cleanHits = (hits: Array<object>) => {
     let cleanedHits = [];
@@ -63,14 +63,17 @@ const NewsContainer = ({
     return [];
   };
 
-  const filterFavorites = (newsArr) => {
-    return selectedNavBtn === "favorites"
-      ? newsArr.filter((newsItem) => {
-          const key = `${newsItem["author"]}-${newsItem["created_at"]}`;
-          return news[key];
-        })
-      : newsArr;
-  };
+  const filterFavorites = useCallback(
+    (newsArr) => {
+      return selectedNavBtn === "favorites"
+        ? newsArr.filter((newsItem) => {
+            const key = `${newsItem["author"]}-${newsItem["created_at"]}`;
+            return news[key];
+          })
+        : newsArr;
+    },
+    [news, selectedNavBtn]
+  );
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -79,7 +82,7 @@ const NewsContainer = ({
   useEffect(() => {
     setSelectedNavBtn("all");
     getNewsRes();
-  }, [option]);
+  }, [option, getNewsRes, setSelectedNavBtn]);
 
   useEffect(() => {
     let filteredNews;
@@ -93,7 +96,7 @@ const NewsContainer = ({
     const indexOfFirstNews = indexOfLastNews - newsPerPage;
     filteredNews &&
       setCurrentNews(filteredNews.slice(indexOfFirstNews, indexOfLastNews));
-  }, [newsRes, currentPage, selectedNavBtn]);
+  }, [newsRes, currentPage, selectedNavBtn, filterFavorites]);
 
   return (
     <>

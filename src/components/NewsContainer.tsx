@@ -66,10 +66,11 @@ const NewsContainer = ({
   const filterFavorites = useCallback(
     (newsArr) => {
       return selectedNavBtn === "favorites"
-        ? newsArr.filter((newsItem) => {
+        ? (setCurrentPage(1),
+          newsArr.filter((newsItem) => {
             const key = `${newsItem["author"]}-${newsItem["created_at"]}`;
             return news[key];
-          })
+          }))
         : newsArr;
     },
     [news, selectedNavBtn]

@@ -105,7 +105,7 @@ const NewsContainer = ({
         option && <p>Loading...</p>
       ) : (
         <SNewsContainer>
-          {currentNews &&
+          {currentNews && currentNews.length > 0 ? (
             currentNews.map((newsItem) => {
               const key = `${newsItem["author"]}-${newsItem["created_at"]}`;
               return (
@@ -119,7 +119,10 @@ const NewsContainer = ({
                   isFavorite={news[key]}
                 />
               );
-            })}
+            })
+          ) : (
+            <p>No news found.</p>
+          )}
         </SNewsContainer>
       )}
       <CenteredRow>

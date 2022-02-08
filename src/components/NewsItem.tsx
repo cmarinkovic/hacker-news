@@ -24,6 +24,7 @@ interface NewsItemProps {
   isFavorite?: boolean;
 }
 
+
 const NewsItem = ({
   title,
   time,
@@ -32,6 +33,12 @@ const NewsItem = ({
   toggleFavorite,
   isFavorite,
 }: NewsItemProps) => {
+  /**
+   * Is favorite state hook. It's used to toggle and display favorite status for the NewsItem.
+   * @constant
+   *
+   * @type {[boolean, function]}
+   */
   const [isFavoriteState, setIsFavoriteState] = useState<boolean>(isFavorite);
 
   return (

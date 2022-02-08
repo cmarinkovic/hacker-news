@@ -15,6 +15,11 @@ interface NewsContainerProps {
   setSelectedNavBtn: (string) => void;
 }
 
+/**
+ * Displays each news element in pages.
+ *
+ * @component
+ */
 const NewsContainer = ({
   news,
   toggleFavorite,
@@ -22,13 +27,58 @@ const NewsContainer = ({
   selectedNavBtn,
   setSelectedNavBtn,
 }: NewsContainerProps) => {
+  /**
+   * News response state hook.
+   * @constant
+   *
+   * @type {[Array<object>, function]}
+   */
   const [newsRes, setNewsRes] = useState<Array<object>>([]);
+
+  /**
+   * Loading state hook. It's used when making the API request.
+   * @constant
+   *
+   * @type {[boolean, function]}
+   */
   const [loading, setLoading] = useState<boolean>(false);
+
+  /**
+   * Current page the user is in state hook.
+   * @constant
+   *
+   * @type {[number, function]}
+   */
   const [currentPage, setCurrentPage] = useState<number>(1);
+
+  /**
+   * Current news to be displayed state hook.
+   * @constant
+   *
+   * @type {[Array<object>, function]}
+   */
   const [currentNews, setCurrentNews] = useState<Array<object>>([]);
+
+  /**
+   * Amount of total news state hook.
+   * @constant
+   *
+   * @type {[number, function]}
+   */
   const [totalNews, setTotalNews] = useState(0);
+
+  /**
+   * News per page.
+   * @constant
+   *
+   * @type {number}
+   */
   const newsPerPage = 8;
 
+  /**
+   * Attempts to obtain news from an API using "option" (angular, reactjs, vuejs) as a parameter.
+   * Then sets the state of corresponding state hooks.
+   */
   const getNewsRes = useCallback(async () => {
     setLoading(true);
 
@@ -46,6 +96,12 @@ const NewsContainer = ({
         }));
   }, [option]);
 
+  /**
+   * Filters the incorrect hits from the API.
+   *
+   * @param {Array<object>} hits The hits array from the API.
+   * @return {Array<object>} Resulting filtered array.
+   */
   const cleanHits = (hits: Array<object>) => {
     let cleanedHits = [];
 
@@ -63,6 +119,9 @@ const NewsContainer = ({
     return [];
   };
 
+  /**
+   * Filters saved favorite news from the API response.
+   */
   const filterFavorites = useCallback(
     (newsArr) => {
       return selectedNavBtn === "favorites"
@@ -76,6 +135,11 @@ const NewsContainer = ({
     [news, selectedNavBtn]
   );
 
+  /**
+   * Sets the value of currentPage.
+   *
+   * @param {number} pageNumber Page number to change to.
+   */
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };

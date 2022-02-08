@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> App.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -97,39 +99,52 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>App.tsx</h1>
                 </header>
                 
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><p>This is a demo React project. It requests a news API and allows to filter them according to topic and favorites. It persists the data in local storage.</p>
-<p><a href="https://festive-lewin-d0e894.netlify.app">Deployment</a></p>
-<p><a href="https://cmarinkovic.github.io/hacker-news/">Code documentation</a></p></article>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Provider } from "react-redux";
+import { store } from "../store";
+import { getPersistor } from "@rematch/persist";
+import { PersistGate } from "redux-persist/lib/integration/react";
+
+import Home from "./Home";
+import { Navbar, NavbarLogo } from "../styles";
+import logo from "../assets/hacker-news.svg";
+import React from "react";
+
+const persistor = getPersistor();
+
+/**
+ * Main component of the application.
+ *
+ * @component
+ */
+function App() {
+  return (
+    &lt;React.StrictMode>
+      &lt;Provider store={store}>
+        &lt;PersistGate loading={null} persistor={persistor}>
+          &lt;Navbar>
+            &lt;NavbarLogo alt="Hacker news logo." src={logo} />
+          &lt;/Navbar>
+          &lt;Home />
+        &lt;/PersistGate>
+      &lt;/Provider>
+    &lt;/React.StrictMode>
+  );
+}
+
+export default App;
+</code></pre>
+        </article>
     </section>
-
-
 
 
 

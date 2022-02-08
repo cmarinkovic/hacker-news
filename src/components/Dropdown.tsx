@@ -21,8 +21,26 @@ interface DropdownProps {
   setOption: (string) => void;
 }
 
+/**
+ * Enables selecting news to filter.
+ *
+ * @component
+ */
 const Dropdown = ({ option, setOption }: DropdownProps) => {
+  /**
+   * Is dropdown open state hook.
+   * @constant
+   *
+   * @type {[string, function]}
+   */
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  /**
+   * Custom hook to detect if user clicks outside the dropdown.
+   * @constant
+   *
+   * @type {[object, function]}
+   */
   const outsideClickRef = useDetectClickOutside({
     onTriggered: () => setIsOpen(false),
   });

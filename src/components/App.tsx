@@ -10,7 +10,11 @@ import React from "react";
 
 const persistor = getPersistor();
 
-
+/**
+ * Main component of the application.
+ *
+ * @component
+ */
 function App() {
   return (
     <React.StrictMode>

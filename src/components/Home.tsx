@@ -10,8 +10,26 @@ import {
   LeftAlignedRow,
 } from "../styles";
 
+/**
+ * Provides the basic UI, including controls for filtering news and favorites.
+ *
+ * @component
+ */
 const Home = () => {
+  /**
+   * Selected navigation button state hook.
+   * @constant
+   *
+   * @type {[string, function]}
+   */
   const [selectedNavBtn, setSelectedNavBtn] = useState<string>("all");
+
+  /**
+   * Selected option state hook.
+   * @constant
+   *
+   * @type {[string, function]}
+   */
   const [option, setOption] = useState<any>();
 
   return (

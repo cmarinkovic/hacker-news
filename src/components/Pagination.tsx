@@ -7,6 +7,11 @@ interface PaginationProps {
   currentPage: number;
 }
 
+/**
+ * Enables pagination of the filtered news.
+ *
+ * @component
+ */
 const Pagination = ({
   newsPerPage,
   totalNews,

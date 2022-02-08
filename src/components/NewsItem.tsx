@@ -51,6 +51,7 @@ const NewsItem = ({
       <FavoriteContainer>
         {isFavoriteState ? (
           <FavoriteIcon
+            alt="Toggle favorite."
             src={favoriteIconMarked}
             onClick={() => {
               setIsFavoriteState(!isFavoriteState);
@@ -61,6 +62,7 @@ const NewsItem = ({
           />
         ) : (
           <FavoriteIcon
+            alt="Toggle favorite."
             src={favoriteIconUnmarked}
             onClick={() => {
               setIsFavoriteState(!isFavoriteState);

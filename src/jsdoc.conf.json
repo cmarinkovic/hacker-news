@@ -6,26 +6,23 @@
   "source": {
     "include": ["src"],
     "exclude": [
-      "src/resources/customModule",
-      "src/resources/customViewerModule",
-      "src/bpmnlinter-config.js"
     ],
-    "includePattern": ".+\\.js(doc|x)?$",
+    "includePattern": ".+\\.ts(doc|x)?$",
     "excludePattern": "(^|\\/|\\\\)_"
   },
   "plugins": ["plugins/markdown", "better-docs/component"],
   "templates": {
     "search": true,
     "better-docs": {
-      "name": "DasContract Editor",
+      "name": "Hacker News",
       "navLinks": [
         {
           "label": "GitHub",
-          "href": "https://github.com/cmarinkovic/das-contract-editor"
+          "href": "https://github.com/cmarinkovic/hacker-news"
         },
         {
           "label": "Deployed Application",
-          "href": "https://das-contract-editor.herokuapp.com/"
+          "href": "https://festive-lewin-d0e894.netlify.app/"
         }
       ]
     }

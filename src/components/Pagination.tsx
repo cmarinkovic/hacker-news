@@ -23,6 +23,7 @@ const Pagination = ({
     <SPagination>
       {pageNumbers.length > 0 && (
         <PageBtn
+          aria-label="Previous page."
           onClick={() => {
             pageNumbers.find((pageNumber) => pageNumber === currentPage - 1) &&
               paginate(currentPage - 1);
@@ -43,6 +44,7 @@ const Pagination = ({
       ))}
       {pageNumbers.length > 0 && (
         <PageBtn
+          aria-label="Next page."
           onClick={() => {
             pageNumbers.find((pageNumber) => pageNumber === currentPage + 1) &&
               paginate(currentPage + 1);

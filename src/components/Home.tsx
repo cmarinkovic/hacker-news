@@ -18,12 +18,14 @@ const Home = () => {
     <AppBodyContainer>
       <CenteredRow>
         <NavBtn
+          aria-label="all"
           className={selectedNavBtn === "all" && "selected"}
           onClick={() => setSelectedNavBtn("all")}
         >
           All
         </NavBtn>
         <NavBtn
+          aria-label="favorites"
           className={selectedNavBtn === "favorites" && "selected"}
           onClick={() => setSelectedNavBtn("favorites")}
         >

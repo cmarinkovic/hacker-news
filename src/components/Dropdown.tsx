@@ -29,7 +29,7 @@ const Dropdown = ({ option, setOption }: DropdownProps) => {
 
   return (
     <DropdownContainer ref={outsideClickRef}>
-      <DropdownHeader onClick={() => setIsOpen(!isOpen)}>
+      <DropdownHeader aria-label="News selector." onClick={() => setIsOpen(!isOpen)}>
         {!option && "Select your news"}
 
         {option === "angular" && <DropdownHeaderLogo src={angularLogo} />}
@@ -41,13 +41,14 @@ const Dropdown = ({ option, setOption }: DropdownProps) => {
         {option === "vuejs" && <DropdownHeaderLogo src={vueLogo} />}
         {option === "vuejs" && "Vue"}
 
-        <DownArrow src={downArrow} />
+        <DownArrow alt="Expand options." src={downArrow} />
       </DropdownHeader>
 
       {isOpen && (
         <DropdownList>
           <DropdownItemWhite
             key="angular"
+            aria-label="Angular news."
             onClick={() => {
               setOption("angular");
               setIsOpen(false);
@@ -59,6 +60,7 @@ const Dropdown = ({ option, setOption }: DropdownProps) => {
 
           <DropdownItemGray
             key="reactjs"
+            aria-label="React news."
             onClick={() => {
               setOption("reactjs");
               setIsOpen(false);
@@ -70,6 +72,7 @@ const Dropdown = ({ option, setOption }: DropdownProps) => {
 
           <DropdownItemWhite
             key="vuejs"
+            aria-label="Vue news."
             onClick={() => {
               setOption("vuejs");
               setIsOpen(false);

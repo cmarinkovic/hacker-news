@@ -16,7 +16,7 @@ function App() {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Navbar>
-            <NavbarLogo src={logo} />
+            <NavbarLogo alt="Hacker news logo." src={logo} />
           </Navbar>
           <Home />
         </PersistGate>

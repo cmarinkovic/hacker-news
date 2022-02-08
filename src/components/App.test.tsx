@@ -1,11 +1,13 @@
 import App from "./App";
-import { render, prettyDOM } from "@testing-library/react";
+import { render, prettyDOM, screen } from "@testing-library/react";
 
-test("<App/>", () => {
-  let component;
+describe("<App/>", () => {
+  let view = render(<App />);
 
-  component = render(<App />);
-  test("Renders content", () => {
-    console.log(prettyDOM(component.container));
+  console.log(prettyDOM(view.container));
+
+  it("displays filtering by favorites", () => {
+    screen.getByText(/all/i);
+    screen.getByText(/favorites/i);
   });
 });
